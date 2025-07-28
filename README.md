@@ -31,6 +31,9 @@ UTFR Firmware Team
 python3 main.py path/to/csv
 
 Parsing CSV...
+
 Converting to MoTeC log...
+
 Saving MoTeC log...
+
 Done!
