@@ -1,4 +1,4 @@
-# AiM CSV to MoTeC `.ld` Log Converter
+# CSV to MoTeC `.ld` Log Converter
 
 A tool that converts CSV log files into **MoTeC `.ld`** format.
 
@@ -10,10 +10,7 @@ Right now the csv parser is designed to parse logs from AiM data loggers, which 
 you can specify one using the --frequency flag. 
 
 ## Requirements
-- Python 3.6 or higher
-
-## Installation
-Clone the repository:
+- I used Python 3.10 but you shouldnt have issues with any new version
 
 ## Usage
 usage: main.py [-h] [--frequency FREQUENCY] [--output OUTPUT] log
