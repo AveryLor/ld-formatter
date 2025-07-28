@@ -25,7 +25,6 @@ options:
                         Sample rate for messages collected by the data logger
   --output OUTPUT       Name of output file, defaults to the same filename as 'log'
 
-UTFR Firmware Team
 
 ## Example
 python3 main.py path/to/csv
