@@ -260,23 +260,27 @@ class ldChan(object):
             dtype_a = 0x05 if self.dtype == np.int32 else 0x03
             dtype = {np.int16: 2, np.int32: 4}[self.dtype]
 
-        f.write(
-            struct.pack(
-                ldChan.fmt,
-                self.prev_meta_ptr,
-                self.next_meta_ptr,
-                self.data_ptr,
-                self.data_len,
-                0x2EE1 + n,
-                dtype_a,
-                dtype,
-                self.freq,
-                self.shift,
-                self.mul,
-                self.scale,
-                self.dec,
-                self.name.encode(),
-                self.short_name.encode(),
-                self.unit.encode(),
+        try:
+            f.write(
+                struct.pack(
+                    ldChan.fmt,
+                    int(self.prev_meta_ptr),
+                    int(self.next_meta_ptr),
+                    int(self.data_ptr),
+                    int(self.data_len),
+                    int(0x2EE1 + n),
+                    int(dtype_a),
+                    int(dtype),
+                    int(self.freq),
+                    int(self.shift),
+                    int(self.mul),
+                    int(self.scale),
+                    int(self.dec),
+                    self.name.encode() if isinstance(self.name, str) else str(self.name).encode(),
+                    self.short_name.encode() if isinstance(self.short_name, str) else str(self.short_name).encode(),
+                    self.unit.encode() if isinstance(self.unit, str) else str(self.unit).encode(),
+                )
             )
-        )
+        except Exception as e:
+            raise e
+

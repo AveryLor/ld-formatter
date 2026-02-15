@@ -41,10 +41,12 @@ class LdLog(object):
         frequency = csv_log.get_frequency()
         if frequency is None:
             try:
-                frequency = metadata["Sample Rate"]
-            except KeyError:
+                frequency = int(float(metadata["Sample Rate"]))
+            except (KeyError, ValueError):
                 print("WARNING: log frequency not specified. Using 20hz default.")
                 frequency = 20
+        else:
+            frequency = int(float(frequency))
 
         ld_vehicle = ldVehicle(
             vehicle_id, vehicle_weight, vehicle_type, vehicle_comment
